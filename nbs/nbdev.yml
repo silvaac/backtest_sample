@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "backtest_sample"
+  site-url: "https://silvaac.github.io/backtest_sample"
+  description: "backtest sample code: very simple with main features"
+  repo-branch: main
+  repo-url: "https://github.com/silvaac/backtest_sample"
