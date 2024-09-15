@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://silvaac.github.io/backtest_sample/data.yahoo.html</loc>
-    <lastmod>2024-09-14T23:51:55.995Z</lastmod>
+    <lastmod>2024-09-15T00:54:25.861Z</lastmod>
   </url>
   <url>
     <loc>https://silvaac.github.io/backtest_sample/core.html</loc>
@@ -10,10 +10,10 @@
   </url>
   <url>
     <loc>https://silvaac.github.io/backtest_sample/data.mysql.html</loc>
-    <lastmod>2024-09-14T23:51:59.463Z</lastmod>
+    <lastmod>2024-09-15T00:54:25.303Z</lastmod>
   </url>
   <url>
     <loc>https://silvaac.github.io/backtest_sample/index.html</loc>
-    <lastmod>2024-09-14T23:51:47.433Z</lastmod>
+    <lastmod>2024-09-15T00:54:26.462Z</lastmod>
   </url>
 </urlset>
