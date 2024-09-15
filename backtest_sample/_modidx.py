@@ -25,4 +25,5 @@ d = { 'settings': { 'branch': 'main',
                                             'backtest_sample.data.yahoo.yahoo.raw_data': ( 'data.yahoo.html#yahoo.raw_data',
                                                                                            'backtest_sample/data/yahoo.py'),
                                             'backtest_sample.data.yahoo.yahoo.sim_data': ( 'data.yahoo.html#yahoo.sim_data',
-                                                                                           'backtest_sample/data/yahoo.py')}}}
+                                                                                           'backtest_sample/data/yahoo.py')},
+            'backtest_sample.get_data': {'backtest_sample.get_data.get_data': ('get_data.html#get_data', 'backtest_sample/get_data.py')}}}

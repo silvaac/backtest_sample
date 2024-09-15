@@ -3,11 +3,11 @@
 # %% auto 0
 __all__ = ['mysql']
 
-# %% ../../nbs/data.mysql.ipynb 2
+# %% ../../nbs/data.mysql.ipynb 4
 from sqlalchemy import create_engine
 import pandas as pd
 
-# %% ../../nbs/data.mysql.ipynb 3
+# %% ../../nbs/data.mysql.ipynb 5
 class mysql:
     def __init__(self,ticker,start_date="1900-01-01"):
         self.ticker = ticker

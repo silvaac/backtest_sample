@@ -3,11 +3,11 @@
 # %% auto 0
 __all__ = ['yahoo']
 
-# %% ../../nbs/data.yahoo.ipynb 2
+# %% ../../nbs/data.yahoo.ipynb 4
 import yfinance as yf
 import pandas as pd
 
-# %% ../../nbs/data.yahoo.ipynb 3
+# %% ../../nbs/data.yahoo.ipynb 5
 class yahoo:
     def __init__(self,ticker,start_date="1900-01-01"):
         self.ticker = ticker
