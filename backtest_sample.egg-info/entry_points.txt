@@ -1,0 +1,2 @@
+[nbdev]
+backtest_sample = backtest_sample._modidx:d
