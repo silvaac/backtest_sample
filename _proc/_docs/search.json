@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "data.yahoo.html",
+    "href": "data.yahoo.html",
+    "title": "Example",
+    "section": "",
+    "text": "yahoo\n\n yahoo (ticker, start_date='1900-01-01')\n\nInitialize self. See help(type(self)) for accurate signature.\n\nfrom backtest_sample.data.yahoo import yahoo\n\nyahoo('SPY').raw_data()\nyahoo('SPY').sim_data()\n\n[*********************100%***********************]  1 of 1 completed\n[*********************100%***********************]  1 of 1 completed\n\n\n\n\n\n\n\n\n\nOpen\nHigh\nLow\nClose\nAdj Close\nVolume\n\n\nDate\n\n\n\n\n\n\n\n\n\n\n1993-01-29\n24.701654\n24.701654\n24.578760\n43.937500\n24.684097\n1785688\n\n\n1993-02-01\n24.701666\n24.859673\n24.701666\n44.250000\n24.859673\n855285\n\n\n1993-02-02\n24.842115\n24.929896\n24.789446\n44.343750\n24.912340\n358312\n\n\n1993-02-03\n24.947449\n25.193236\n24.929892\n44.812500\n25.175680\n942327\n\n\n1993-02-04\n25.263455\n25.333680\n24.982555\n45.000000\n25.281012\n946065\n\n\n...\n...\n...\n...\n...\n...\n...\n\n\n2024-09-09\n544.650024\n547.710022\n542.679993\n546.409973\n546.409973\n40445800\n\n\n2024-09-10\n548.359985\n549.150024\n543.380005\n548.789978\n548.789978\n36394600\n\n\n2024-09-11\n548.700012\n555.359985\n539.960022\n554.419983\n554.419983\n75248600\n\n\n2024-09-12\n555.010010\n559.400024\n552.739990\n559.090027\n559.090027\n51892700\n\n\n2024-09-13\n559.710022\n563.030029\n559.450012\n562.010010\n562.010010\n39256500\n\n\n\n\n7963 rows × 6 columns"
+  },
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "core",
+    "section": "",
+    "text": "foo\n\n foo ()"
+  },
+  {
+    "objectID": "data.mysql.html",
+    "href": "data.mysql.html",
+    "title": "backtest_sample",
+    "section": "",
+    "text": "mysql\n\n mysql (ticker, start_date='1900-01-01')\n\nInitialize self. See help(type(self)) for accurate signature."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "backtest_sample",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation."
+  },
+  {
+    "objectID": "index.html#developer-guide",
+    "href": "index.html#developer-guide",
+    "title": "backtest_sample",
+    "section": "Developer Guide",
+    "text": "Developer Guide\nIf you are new to using nbdev here are some useful pointers to get you started.\n\nInstall backtest_sample in Development mode\n# make sure backtest_sample package is installed in development mode\n$ pip install -e .\n\n# make changes under nbs/ directory\n# ...\n\n# compile to have changes apply to backtest_sample\n$ nbdev_prepare"
+  },
+  {
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
+    "title": "backtest_sample",
+    "section": "Usage",
+    "text": "Usage\n\nInstallation\nInstall latest from the GitHub repository:\n$ pip install git+https://github.com/silvaac/backtest_sample.git\nor from conda\n$ conda install -c silvaac backtest_sample\nor from pypi\n$ pip install backtest_sample\n\n\nDocumentation\nDocumentation can be found hosted on this GitHub repository’s pages. Additionally you can find package manager specific guidelines on conda and pypi respectively."
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "backtest_sample",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2"
+  }
+]

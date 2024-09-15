@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="backtest sample code: very simple with main features">
 
-<title>backtest_sample</title>
+<title>backtest_sample - Example</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,14 +93,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="backtest_sample">
-<meta property="og:description" content="backtest sample code: very simple with main features">
+<meta property="og:title" content="backtest_sample - Example">
+<meta property="og:description" content="">
 <meta property="og:site-name" content="backtest_sample">
-<meta name="twitter:title" content="backtest_sample">
-<meta name="twitter:description" content="backtest sample code: very simple with main features">
+<meta name="twitter:title" content="backtest_sample - Example">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -126,7 +128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">backtest_sample</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data.yahoo.html">Example</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -140,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">backtest_sample</span></a>
   </div>
 </li>
@@ -158,7 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data.yahoo.html" class="sidebar-item-text sidebar-link">
+  <a href="./data.yahoo.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Example</span></a>
   </div>
 </li>
@@ -172,32 +174,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#developer-guide" id="toc-developer-guide" class="nav-link active" data-scroll-target="#developer-guide">Developer Guide</a>
-  <ul class="collapse">
-  <li><a href="#install-backtest_sample-in-development-mode" id="toc-install-backtest_sample-in-development-mode" class="nav-link" data-scroll-target="#install-backtest_sample-in-development-mode">Install backtest_sample in Development mode</a></li>
-  </ul></li>
-  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a>
-  <ul class="collapse">
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a></li>
-  </ul></li>
-  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link" data-scroll-target="#how-to-use">How to use</a></li>
+  <li><a href="#yahoo" id="toc-yahoo" class="nav-link active" data-scroll-target="#yahoo">yahoo</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/silvaac/backtest_sample/issues/new" class="toc-action">Report an issue</a></p></div></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/silvaac/backtest_sample/issues/new" class="toc-action">Report an issue</a></p></div></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="data.yahoo.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">backtest_sample</h1>
+<h1 class="title">Example</h1>
 </div>
 
-<div>
-  <div class="description">
-    backtest sample code: very simple with main features
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -211,45 +199,152 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
-<p>This file will become your README and also the index of your documentation.</p>
-<section id="developer-guide" class="level2">
-<h2 class="anchored" data-anchor-id="developer-guide">Developer Guide</h2>
-<p>If you are new to using <code>nbdev</code> here are some useful pointers to get you started.</p>
-<section id="install-backtest_sample-in-development-mode" class="level3">
-<h3 class="anchored" data-anchor-id="install-backtest_sample-in-development-mode">Install backtest_sample in Development mode</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure backtest_sample package is installed in development mode</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install <span class="at">-e</span> .</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># make changes under nbs/ directory</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># compile to have changes apply to backtest_sample</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> nbdev_prepare</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="usage" class="level2">
-<h2 class="anchored" data-anchor-id="usage">Usage</h2>
-<section id="installation" class="level3">
-<h3 class="anchored" data-anchor-id="installation">Installation</h3>
-<p>Install latest from the GitHub <a href="https://github.com/silvaac/backtest_sample">repository</a>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install git+https://github.com/silvaac/backtest_sample.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or from <a href="https://anaconda.org/silvaac/backtest_sample">conda</a></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda install <span class="at">-c</span> silvaac backtest_sample</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or from <a href="https://pypi.org/project/backtest_sample/">pypi</a></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install backtest_sample</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="documentation" class="level3">
-<h3 class="anchored" data-anchor-id="documentation">Documentation</h3>
-<p>Documentation can be found hosted on this GitHub <a href="https://github.com/silvaac/backtest_sample">repository</a>’s <a href="https://silvaac.github.io/backtest_sample/">pages</a>. Additionally you can find package manager specific guidelines on <a href="https://anaconda.org/silvaac/backtest_sample">conda</a> and <a href="https://pypi.org/project/backtest_sample/">pypi</a> respectively.</p>
-</section>
-</section>
-<section id="how-to-use" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-use">How to use</h2>
-<p>Fill me in please! Don’t forget code examples:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<section id="yahoo" class="level3">
+<h3 class="anchored" data-anchor-id="yahoo">yahoo</h3>
+<blockquote class="blockquote">
+<pre><code> yahoo (ticker, start_date='1900-01-01')</code></pre>
+</blockquote>
+<p><em>Initialize self. See help(type(self)) for accurate signature.</em></p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> backtest_sample.data.yahoo <span class="im">import</span> yahoo</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>yahoo(<span class="st">'SPY'</span>).raw_data()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>yahoo(<span class="st">'SPY'</span>).sim_data()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>[*********************100%***********************]  1 of 1 completed
+[*********************100%***********************]  1 of 1 completed</code></pre>
+</div>
 <div class="cell-output cell-output-display">
-<pre><code>2</code></pre>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Open</th>
+<th data-quarto-table-cell-role="th">High</th>
+<th data-quarto-table-cell-role="th">Low</th>
+<th data-quarto-table-cell-role="th">Close</th>
+<th data-quarto-table-cell-role="th">Adj Close</th>
+<th data-quarto-table-cell-role="th">Volume</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1993-01-29</td>
+<td>24.701654</td>
+<td>24.701654</td>
+<td>24.578760</td>
+<td>43.937500</td>
+<td>24.684097</td>
+<td>1785688</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1993-02-01</td>
+<td>24.701666</td>
+<td>24.859673</td>
+<td>24.701666</td>
+<td>44.250000</td>
+<td>24.859673</td>
+<td>855285</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1993-02-02</td>
+<td>24.842115</td>
+<td>24.929896</td>
+<td>24.789446</td>
+<td>44.343750</td>
+<td>24.912340</td>
+<td>358312</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1993-02-03</td>
+<td>24.947449</td>
+<td>25.193236</td>
+<td>24.929892</td>
+<td>44.812500</td>
+<td>25.175680</td>
+<td>942327</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1993-02-04</td>
+<td>25.263455</td>
+<td>25.333680</td>
+<td>24.982555</td>
+<td>45.000000</td>
+<td>25.281012</td>
+<td>946065</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-09-09</td>
+<td>544.650024</td>
+<td>547.710022</td>
+<td>542.679993</td>
+<td>546.409973</td>
+<td>546.409973</td>
+<td>40445800</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-09-10</td>
+<td>548.359985</td>
+<td>549.150024</td>
+<td>543.380005</td>
+<td>548.789978</td>
+<td>548.789978</td>
+<td>36394600</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-09-11</td>
+<td>548.700012</td>
+<td>555.359985</td>
+<td>539.960022</td>
+<td>554.419983</td>
+<td>554.419983</td>
+<td>75248600</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-09-12</td>
+<td>555.010010</td>
+<td>559.400024</td>
+<td>552.739990</td>
+<td>559.090027</td>
+<td>559.090027</td>
+<td>51892700</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-09-13</td>
+<td>559.710022</td>
+<td>563.030029</td>
+<td>559.450012</td>
+<td>562.010010</td>
+<td>562.010010</td>
+<td>39256500</td>
+</tr>
+</tbody>
+</table>
+
+<p>7963 rows × 6 columns</p>
+</div>
 </div>
 </div>
 

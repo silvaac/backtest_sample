@@ -1,0 +1,7 @@
+website:
+  sidebar:
+    contents:
+      - index.ipynb
+      - 00_core.ipynb
+      - data.mysql.ipynb
+      - data.yahoo.ipynb
