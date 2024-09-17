@@ -3,13 +3,13 @@
 # %% auto 0
 __all__ = ['backtest']
 
-# %% ../nbs/backtest_loop.ipynb 2
+# %% ../nbs/backtest_loop.ipynb 4
 import pandas as pd
 import numpy as np
 from parfor import parfor
 from .data_interface import *
 
-# %% ../nbs/backtest_loop.ipynb 3
+# %% ../nbs/backtest_loop.ipynb 5
 def backtest(data,param):
     # Local variables
     start_date = param['start_date']
