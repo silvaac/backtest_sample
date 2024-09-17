@@ -17,11 +17,6 @@ class mysql:
         """
         Reads data from a SQL Server database.
 
-        Args:
-            query: The SQL query to execute. ("SELECT * FROM table....")
-
-        Returns:
-            A pandas DataFrame containing the query results.
         """
         sql_server_conn_string = "" # DOTO
         query = f"SELECT * from prices where ticker={self.ticker} and datetime>\"{self.start_date}\""
