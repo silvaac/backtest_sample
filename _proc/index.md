@@ -52,7 +52,7 @@ Documentation can be found hosted on this GitHub [repository][repo]'s [pages][do
 ### Get data 
 You can only get data from yahoo finance at the moment.
 
-::: {.cell execution_count=22}
+::: {.cell}
 ``` {.python .cell-code}
 import_module = get_data()
 df = import_module('BTC-USD').sim_data()
@@ -106,7 +106,7 @@ Date                                    ...
 
 Select the parameters of the backtest and the model.
 
-::: {.cell execution_count=23}
+::: {.cell}
 ``` {.python .cell-code}
 # parameters
 prm = {}
@@ -146,7 +146,7 @@ Pass the parameters and the data. Output is a dataframe with col:
 * pnl0: profit or loss for the time interval without TC (here day)
 * pnl: profit or loss for the time interval including TC (here day)
 
-::: {.cell execution_count=24}
+::: {.cell}
 ``` {.python .cell-code}
 bkt = backtest(df,prm)
 print(bkt.tail())
@@ -173,7 +173,7 @@ print(bkt.tail())
 
 Sample plot of the data:
 
-::: {.cell execution_count=25}
+::: {.cell}
 ``` {.python .cell-code}
 import matplotlib.pyplot as plt
 import numpy as np

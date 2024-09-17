@@ -76,7 +76,7 @@ Returns:
 
 ## Example
 
-::: {.cell execution_count=6}
+::: {.cell}
 ``` {.python .cell-code}
 from backtest_sample.data_interface import get_data
 import_module = get_data()
@@ -127,7 +127,7 @@ Date                                    ...
 :::
 
 
-::: {.cell execution_count=7}
+::: {.cell}
 ``` {.python .cell-code}
 er = get_er()
 prm = {}
@@ -146,7 +146,7 @@ print(yHat.y_hat())
 :::
 
 
-::: {.cell execution_count=8}
+::: {.cell}
 ``` {.python .cell-code}
 risk = get_risk()
 prm = {}
@@ -164,7 +164,7 @@ print(riskHat.risk_hat())
 :::
 
 
-::: {.cell execution_count=9}
+::: {.cell}
 ``` {.python .cell-code}
 tTc = get_tc()
 prm = {}
@@ -184,7 +184,7 @@ print(tc.TC(100))
 :::
 
 
-::: {.cell execution_count=10}
+::: {.cell}
 ``` {.python .cell-code}
 prm = {}
 prm['target_vol'] = 0.005

@@ -31,7 +31,7 @@ Parameters:
 
 ## Example
 
-::: {.cell execution_count=5}
+::: {.cell}
 ``` {.python .cell-code}
 # Get data
 from backtest_sample.data_interface import get_data

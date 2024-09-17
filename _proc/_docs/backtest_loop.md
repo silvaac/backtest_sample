@@ -17,7 +17,7 @@ title: Example
 
 
 
-::: {.cell execution_count=5}
+::: {.cell}
 ``` {.python .cell-code}
 prm = {}
 prm['when_trade'] = 'open'
@@ -37,7 +37,7 @@ prm['pm_member_func'] = get_pm()
 :::
 
 
-::: {.cell execution_count=6}
+::: {.cell}
 ``` {.python .cell-code}
 import_module = get_data()
 df = import_module('BTC-USD').sim_data()
@@ -87,14 +87,14 @@ Date                                    ...
 :::
 
 
-::: {.cell execution_count=7}
+::: {.cell}
 ``` {.python .cell-code}
 bkt = backtest(df,prm)
 ```
 :::
 
 
-::: {.cell execution_count=8}
+::: {.cell}
 ``` {.python .cell-code}
 import matplotlib.pyplot as plt
 import numpy as np
@@ -121,7 +121,7 @@ plt.show()
 
 In series using a simple for loop:
 
-::: {.cell execution_count=9}
+::: {.cell}
 ``` {.python .cell-code}
 bkts = []
 for i in range(0,40,2):
@@ -135,7 +135,7 @@ for i in range(0,40,2):
 
 In parallel using multiprocessing:
 
-::: {.cell execution_count=10}
+::: {.cell}
 ``` {.python .cell-code}
 @parfor(range(0,40,2)) # also works:[0,2,10,20]
 def fun(i):

@@ -23,7 +23,7 @@ Like a "human" portfolio mananger the job of this code is to take in predictions
 
 ## Example
 
-::: {.cell execution_count=5}
+::: {.cell}
 ``` {.python .cell-code}
 # Get data
 from backtest_sample.data_interface import get_data
@@ -39,7 +39,7 @@ df = import_module('BTC-USD').sim_data()
 :::
 
 
-::: {.cell execution_count=6}
+::: {.cell}
 ``` {.python .cell-code}
 prm = {}
 prm['target_vol'] = 0.005
