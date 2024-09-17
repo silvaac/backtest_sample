@@ -273,59 +273,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>import_module <span class="op">=</span> get_data()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> import_module(<span class="st">'BTC-USD'</span>).sim_data()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>[*********************100%***********************]  1 of 1 completed</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                    Open          High  ...     Adj Close       Volume
-Date                                    ...                           
-2014-09-17    465.864014    468.174011  ...    457.334015     21056800
-2014-09-18    456.859985    456.859985  ...    424.440002     34483200
-2014-09-19    424.102997    427.834991  ...    394.795990     37919700
-2014-09-20    394.673004    423.295990  ...    408.903992     36863600
-2014-09-21    408.084991    412.425995  ...    398.821014     26580100
-...                  ...           ...  ...           ...          ...
-2024-09-13  58130.324219  60648.023438  ...  60571.300781  32490528356
-2024-09-14  60569.117188  60656.722656  ...  60005.121094  16428405496
-2024-09-15  60000.726562  60381.917969  ...  59182.835938  18120960867
-2024-09-16  59185.226562  59205.511719  ...  58192.507812  32032822113
-2024-09-17  58204.093750  61143.996094  ...  61143.996094  33582102528
-
-[3654 rows x 6 columns]
-                    Open          High  ...     Adj Close       Volume
-Date                                    ...                           
-2014-09-17    465.864014    468.174011  ...    457.334015     21056800
-2014-09-18    456.859985    456.859985  ...    424.440002     34483200
-2014-09-19    424.102997    427.834991  ...    394.795990     37919700
-2014-09-20    394.673004    423.295990  ...    408.903992     36863600
-2014-09-21    408.084991    412.425995  ...    398.821014     26580100
-...                  ...           ...  ...           ...          ...
-2024-09-13  58130.324219  60648.023438  ...  60571.300781  32490528356
-2024-09-14  60569.117188  60656.722656  ...  60005.121094  16428405496
-2024-09-15  60000.726562  60381.917969  ...  59182.835938  18120960867
-2024-09-16  59185.226562  59205.511719  ...  58192.507812  32032822113
-2024-09-17  58204.093750  61143.996094  ...  61143.996094  33582102528
-
-[3654 rows x 6 columns]</code></pre>
-</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>bkt <span class="op">=</span> backtest(df,prm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bkt <span class="op">=</span> backtest(df,prm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.plot(bkt[<span class="st">'pnl'</span>].cumsum())</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add labels and title</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">''</span>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'$'</span>)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Performance'</span>)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>plt.plot(bkt[<span class="st">'pnl'</span>].cumsum())</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add labels and title</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">''</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'$'</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Performance'</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="backtest_loop_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
@@ -334,19 +299,19 @@ Date                                    ...
 <h3 class="anchored" data-anchor-id="run-parameters-optimization">Run parameters optimization</h3>
 <p>In series using a simple for loop:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>bkts <span class="op">=</span> []</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">40</span>,<span class="dv">2</span>):</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    prm[<span class="st">'mawin'</span>] <span class="op">=</span> <span class="dv">10</span><span class="op">*</span>(i<span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print(prm['mawin'])</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    bkt <span class="op">=</span> backtest(df,prm)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    bkts.append(bkt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>bkts <span class="op">=</span> []</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">40</span>,<span class="dv">2</span>):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    prm[<span class="st">'mawin'</span>] <span class="op">=</span> <span class="dv">10</span><span class="op">*</span>(i<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print(prm['mawin'])</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    bkt <span class="op">=</span> backtest(df,prm)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    bkts.append(bkt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In parallel using multiprocessing:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="at">@parfor</span>(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">40</span>,<span class="dv">2</span>)) <span class="co"># also works:[0,2,10,20]</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun(i):</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    prm[<span class="st">'mawin'</span>] <span class="op">=</span> <span class="dv">10</span><span class="op">*</span>(i<span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> backtest(df,prm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">@parfor</span>(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">40</span>,<span class="dv">2</span>)) <span class="co"># also works:[0,2,10,20]</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun(i):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    prm[<span class="st">'mawin'</span>] <span class="op">=</span> <span class="dv">10</span><span class="op">*</span>(i<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> backtest(df,prm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>  0%|                                                   | 0/20 [00:00&lt;?, ?it/s]  5%|██▏                                        | 1/20 [00:03&lt;01:04,  3.41s/it] 25%|██████████▊                                | 5/20 [00:03&lt;00:08,  1.85it/s] 40%|█████████████████▏                         | 8/20 [00:03&lt;00:03,  3.20it/s] 50%|█████████████████████                     | 10/20 [00:05&lt;00:04,  2.30it/s] 65%|███████████████████████████▎              | 13/20 [00:05&lt;00:01,  3.55it/s] 75%|███████████████████████████████▌          | 15/20 [00:05&lt;00:01,  4.44it/s] 85%|███████████████████████████████████▋      | 17/20 [00:06&lt;00:00,  3.37it/s]100%|██████████████████████████████████████████| 20/20 [00:06&lt;00:00,  3.09it/s]</code></pre>
 </div>
