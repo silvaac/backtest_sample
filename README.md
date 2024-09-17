@@ -66,6 +66,11 @@ Documentation can be found hosted on this GitHub
 You can only get data from yahoo finance at the moment.
 
 ``` python
+from backtest_sample.data_interface import *
+from backtest_sample.backtest_loop import backtest
+```
+
+``` python
 import_module = get_data()
 df = import_module('BTC-USD').sim_data()
 print(df.tail())
@@ -171,4 +176,4 @@ plt.title('Performance')
 plt.show()
 ```
 
-![](index_files/figure-commonmark/cell-5-output-1.png)
+![](index_files/figure-commonmark/cell-6-output-1.png)
