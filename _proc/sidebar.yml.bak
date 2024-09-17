@@ -1,0 +1,13 @@
+website:
+  sidebar:
+    contents:
+      - index.ipynb
+      - 00_core.ipynb
+      - backtest_loop.ipynb
+      - data.mysql.ipynb
+      - data.yahoo.ipynb
+      - data_interface.ipynb
+      - er.ma_model.ipynb
+      - pm.vol_target.ipynb
+      - risk.sig_model.ipynb
+      - tc.simple.ipynb

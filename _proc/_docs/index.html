@@ -291,41 +291,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>import_module <span class="op">=</span> get_data()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> import_module(<span class="st">'BTC-USD'</span>).sim_data()</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.tail())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>[*********************100%***********************]  1 of 1 completed</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                    Open          High  ...     Adj Close       Volume
 Date                                    ...                           
-2014-09-17    465.864014    468.174011  ...    457.334015     21056800
-2014-09-18    456.859985    456.859985  ...    424.440002     34483200
-2014-09-19    424.102997    427.834991  ...    394.795990     37919700
-2014-09-20    394.673004    423.295990  ...    408.903992     36863600
-2014-09-21    408.084991    412.425995  ...    398.821014     26580100
-...                  ...           ...  ...           ...          ...
 2024-09-13  58130.324219  60648.023438  ...  60571.300781  32490528356
 2024-09-14  60569.117188  60656.722656  ...  60005.121094  16428405496
 2024-09-15  60000.726562  60381.917969  ...  59182.835938  18120960867
 2024-09-16  59185.226562  59205.511719  ...  58192.507812  32032822113
-2024-09-17  58204.093750  61176.664062  ...  61176.664062  33350137856
+2024-09-17  58204.093750  61143.996094  ...  61143.996094  33582102528
 
-[3654 rows x 6 columns]
+[5 rows x 6 columns]
                     Open          High  ...     Adj Close       Volume
 Date                                    ...                           
-2014-09-17    465.864014    468.174011  ...    457.334015     21056800
-2014-09-18    456.859985    456.859985  ...    424.440002     34483200
-2014-09-19    424.102997    427.834991  ...    394.795990     37919700
-2014-09-20    394.673004    423.295990  ...    408.903992     36863600
-2014-09-21    408.084991    412.425995  ...    398.821014     26580100
-...                  ...           ...  ...           ...          ...
 2024-09-13  58130.324219  60648.023438  ...  60571.300781  32490528356
 2024-09-14  60569.117188  60656.722656  ...  60005.121094  16428405496
 2024-09-15  60000.726562  60381.917969  ...  59182.835938  18120960867
 2024-09-16  59185.226562  59205.511719  ...  58192.507812  32032822113
-2024-09-17  58204.093750  61176.664062  ...  61176.664062  33350137856
+2024-09-17  58204.093750  61143.996094  ...  61143.996094  33582102528
 
-[3654 rows x 6 columns]</code></pre>
+[5 rows x 6 columns]</code></pre>
 </div>
 </div>
 </section>
