@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>backtest_sample - Yahoo data download</title>
+<title>backtest_sample - Moving average model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,16 +93,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="backtest_sample - Yahoo data download">
+<meta property="og:title" content="backtest_sample - Moving average model">
 <meta property="og:description" content="">
 <meta property="og:site-name" content="backtest_sample">
-<meta name="twitter:title" content="backtest_sample - Yahoo data download">
+<meta name="twitter:title" content="backtest_sample - Moving average model">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -128,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data.yahoo.html">Yahoo data download</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./er.ma_model.html">Moving average model</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -166,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data.yahoo.html" class="sidebar-item-text sidebar-link active">
+  <a href="./data.yahoo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Yahoo data download</span></a>
   </div>
 </li>
@@ -178,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./er.ma_model.html" class="sidebar-item-text sidebar-link">
+  <a href="./er.ma_model.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Moving average model</span></a>
   </div>
 </li>
@@ -210,17 +207,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#yahoo" id="toc-yahoo" class="nav-link active" data-scroll-target="#yahoo">yahoo</a></li>
+  <li><a href="#ma_model" id="toc-ma_model" class="nav-link active" data-scroll-target="#ma_model">ma_model</a></li>
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/silvaac/backtest_sample/issues/new" class="toc-action">Report an issue</a></p></div></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="data.yahoo.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/silvaac/backtest_sample/issues/new" class="toc-action">Report an issue</a></p></div></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="er.ma_model.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Yahoo data download</h1>
+<h1 class="title">Moving average model</h1>
 </div>
 
 
@@ -236,292 +233,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
-<p>Simple code that downloads data from yahoo finance to illustrate backtest. Normally the data should be stored in a database or in an infrastructure that allows for ETL to be controled by custom code. Notice that ticker is probably not the best unique ID … Again, this is a demo to get free data.</p>
+<p>To illustrate a backtesting algorithm, a simple prediction algorithm is presented. Aside from the simplicity of the prediction algorithm, it’s assumed that predictions are made at the same frequency as the input data.</p>
+<p>To create an expected return (ER) model (forecasting model), data and the exact data format are required. Here, both data and param are assumed to be dictionaries, facilitating the development of complex algorithms that require various data items.</p>
+<p>The convention is that any ER will accept data and a param, and will consistently generate an output dictionary with a “yHat” element and possibly others that can be utilized in more complex algorithms (e.g., when creating allocation or risk).</p>
 <hr>
-<p><a href="https://github.com/silvaac/backtest_sample/blob/main/backtest_sample/data/yahoo.py#L11" target="_blank" style="float:right; font-size:smaller">source</a></p>
-<section id="yahoo" class="level3">
-<h3 class="anchored" data-anchor-id="yahoo">yahoo</h3>
+<p><a href="https://github.com/silvaac/backtest_sample/blob/main/backtest_sample/er/ma_model.py#L11" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="ma_model" class="level3">
+<h3 class="anchored" data-anchor-id="ma_model">ma_model</h3>
 <blockquote class="blockquote">
-<pre><code> yahoo (ticker, start_date='1900-01-01')</code></pre>
+<pre><code> ma_model (data, param)</code></pre>
 </blockquote>
-<p><em>Initialize self. See help(type(self)) for accurate signature.</em></p>
+<p>*Initialize the moving average (ma) class with data and parameters.</p>
+<p>Parameters: - data: A DataFrame containing OHLCV (Open, High, Low, Close, Volume) data. - param: A dictionary containing parameters ‘mawin’ (moving average window) and ‘sdwin’ (standard deviation window).*</p>
 </section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> backtest_sample.data.yahoo <span class="im">import</span> yahoo</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>yahoo(<span class="st">'SPY'</span>).raw_data()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> backtest_sample.data_interface <span class="im">import</span> get_data</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>import_module <span class="op">=</span> get_data()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> import_module(<span class="st">'BTC-USD'</span>).sim_data()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecast</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>prm <span class="op">=</span> {}</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'mawin'</span>] <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'sdwin'</span>] <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>yHat <span class="op">=</span> ma_model(df.values,prm)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(yHat.y_hat())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>[*********************100%***********************]  1 of 1 completed</code></pre>
 </div>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Open</th>
-<th data-quarto-table-cell-role="th">High</th>
-<th data-quarto-table-cell-role="th">Low</th>
-<th data-quarto-table-cell-role="th">Close</th>
-<th data-quarto-table-cell-role="th">Adj Close</th>
-<th data-quarto-table-cell-role="th">Volume</th>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">Date</th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">1993-01-29</td>
-<td>43.968750</td>
-<td>43.968750</td>
-<td>43.750000</td>
-<td>43.937500</td>
-<td>24.684105</td>
-<td>1003200</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1993-02-01</td>
-<td>43.968750</td>
-<td>44.250000</td>
-<td>43.968750</td>
-<td>44.250000</td>
-<td>24.859669</td>
-<td>480500</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">1993-02-02</td>
-<td>44.218750</td>
-<td>44.375000</td>
-<td>44.125000</td>
-<td>44.343750</td>
-<td>24.912336</td>
-<td>201300</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1993-02-03</td>
-<td>44.406250</td>
-<td>44.843750</td>
-<td>44.375000</td>
-<td>44.812500</td>
-<td>25.175676</td>
-<td>529400</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">1993-02-04</td>
-<td>44.968750</td>
-<td>45.093750</td>
-<td>44.468750</td>
-<td>45.000000</td>
-<td>25.281004</td>
-<td>531500</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2024-09-09</td>
-<td>544.650024</td>
-<td>547.710022</td>
-<td>542.679993</td>
-<td>546.409973</td>
-<td>546.409973</td>
-<td>40445800</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2024-09-10</td>
-<td>548.359985</td>
-<td>549.150024</td>
-<td>543.380005</td>
-<td>548.789978</td>
-<td>548.789978</td>
-<td>36394600</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2024-09-11</td>
-<td>548.700012</td>
-<td>555.359985</td>
-<td>539.960022</td>
-<td>554.419983</td>
-<td>554.419983</td>
-<td>75248600</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2024-09-12</td>
-<td>555.010010</td>
-<td>559.400024</td>
-<td>552.739990</td>
-<td>559.090027</td>
-<td>559.090027</td>
-<td>51892700</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2024-09-13</td>
-<td>559.710022</td>
-<td>563.030029</td>
-<td>559.450012</td>
-<td>562.010010</td>
-<td>562.010010</td>
-<td>39256500</td>
-</tr>
-</tbody>
-</table>
-
-<p>7963 rows × 6 columns</p>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>yahoo(<span class="st">'SPY'</span>).sim_data()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>[*********************100%***********************]  1 of 1 completed</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Open</th>
-<th data-quarto-table-cell-role="th">High</th>
-<th data-quarto-table-cell-role="th">Low</th>
-<th data-quarto-table-cell-role="th">Close</th>
-<th data-quarto-table-cell-role="th">Adj Close</th>
-<th data-quarto-table-cell-role="th">Volume</th>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">Date</th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">1993-01-29</td>
-<td>24.701665</td>
-<td>24.701665</td>
-<td>24.578771</td>
-<td>43.937500</td>
-<td>24.684109</td>
-<td>1785687</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1993-02-01</td>
-<td>24.701664</td>
-<td>24.859671</td>
-<td>24.701664</td>
-<td>44.250000</td>
-<td>24.859671</td>
-<td>855285</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">1993-02-02</td>
-<td>24.842106</td>
-<td>24.929887</td>
-<td>24.789437</td>
-<td>44.343750</td>
-<td>24.912331</td>
-<td>358312</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1993-02-03</td>
-<td>24.947454</td>
-<td>25.193242</td>
-<td>24.929898</td>
-<td>44.812500</td>
-<td>25.175686</td>
-<td>942327</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">1993-02-04</td>
-<td>25.263448</td>
-<td>25.333673</td>
-<td>24.982548</td>
-<td>45.000000</td>
-<td>25.281004</td>
-<td>946066</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2024-09-09</td>
-<td>544.650024</td>
-<td>547.710022</td>
-<td>542.679993</td>
-<td>546.409973</td>
-<td>546.409973</td>
-<td>40445800</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2024-09-10</td>
-<td>548.359985</td>
-<td>549.150024</td>
-<td>543.380005</td>
-<td>548.789978</td>
-<td>548.789978</td>
-<td>36394600</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2024-09-11</td>
-<td>548.700012</td>
-<td>555.359985</td>
-<td>539.960022</td>
-<td>554.419983</td>
-<td>554.419983</td>
-<td>75248600</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2024-09-12</td>
-<td>555.010010</td>
-<td>559.400024</td>
-<td>552.739990</td>
-<td>559.090027</td>
-<td>559.090027</td>
-<td>51892700</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2024-09-13</td>
-<td>559.710022</td>
-<td>563.030029</td>
-<td>559.450012</td>
-<td>562.010010</td>
-<td>562.010010</td>
-<td>39256500</td>
-</tr>
-</tbody>
-</table>
-
-<p>7963 rows × 6 columns</p>
-</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'y_hat': 0.4312}
+{'y_hat': 0.4312}</code></pre>
 </div>
 </div>
 

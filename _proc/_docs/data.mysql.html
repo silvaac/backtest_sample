@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>backtest_sample – data.mysql</title>
+<title>backtest_sample - Mysql data pull</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,6 +62,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="backtest_sample - Mysql data pull">
+<meta property="og:description" content="">
+<meta property="og:site-name" content="backtest_sample">
+<meta name="twitter:title" content="backtest_sample - Mysql data pull">
+<meta name="twitter:description" content="">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -85,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data.mysql.html">data.mysql.html</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data.mysql.html">Mysql data pull</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -111,14 +117,50 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./backtest_loop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Example</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./data.mysql.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">data.mysql.html</span></a>
+ <span class="menu-text">Mysql data pull</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data.yahoo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Example</span></a>
+ <span class="menu-text">Yahoo data download</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_interface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Main data interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./er.ma_model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Moving average model</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pm.vol_target.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Portfolio mananger</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./risk.sig_model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Volatility forecast</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tc.simple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">First TC model</span></a>
   </div>
 </li>
     </ul>
@@ -133,14 +175,30 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#mysql" id="toc-mysql" class="nav-link active" data-scroll-target="#mysql">mysql</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/silvaac/backtest_sample/issues/new" class="toc-action">Report an issue</a></p></div></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="data.mysql.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/silvaac/backtest_sample/issues/new" class="toc-action">Report an issue</a></p></div></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="data.mysql.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Mysql data pull</h1>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<p>This is a sample code that does not work!!! My goal here is to illustrate how a possible interface would look like….</p>
 <hr>
 <p><a href="https://github.com/silvaac/backtest_sample/blob/main/backtest_sample/data/mysql.py#L11" target="_blank" style="float:right; font-size:smaller">source</a></p>
 <section id="mysql" class="level3">

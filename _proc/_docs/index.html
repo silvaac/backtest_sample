@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="backtest sample code: very simple with main features">
 
 <title>backtest_sample</title>
 <style>
@@ -98,11 +97,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="backtest_sample">
-<meta property="og:description" content="backtest sample code: very simple with main features">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://silvaac.github.io/backtest_sample/index_files/figure-html/cell-5-output-1.png">
 <meta property="og:site-name" content="backtest_sample">
+<meta property="og:image:height" content="435">
+<meta property="og:image:width" content="554">
 <meta name="twitter:title" content="backtest_sample">
-<meta name="twitter:description" content="backtest sample code: very simple with main features">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://silvaac.github.io/backtest_sample/index_files/figure-html/cell-5-output-1.png">
+<meta name="twitter:image-height" content="435">
+<meta name="twitter:image-width" content="554">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -152,14 +157,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./backtest_loop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Example</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./data.mysql.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">data.mysql.html</span></a>
+ <span class="menu-text">Mysql data pull</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data.yahoo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Example</span></a>
+ <span class="menu-text">Yahoo data download</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_interface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Main data interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./er.ma_model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Moving average model</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pm.vol_target.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Portfolio mananger</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./risk.sig_model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Volatility forecast</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tc.simple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">First TC model</span></a>
   </div>
 </li>
     </ul>
@@ -181,7 +222,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
   <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a></li>
   </ul></li>
-  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link" data-scroll-target="#how-to-use">How to use</a></li>
+  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link" data-scroll-target="#how-to-use">How to use</a>
+  <ul class="collapse">
+  <li><a href="#get-data" id="toc-get-data" class="nav-link" data-scroll-target="#get-data">Get data</a></li>
+  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
+  <li><a href="#run-the-backtest" id="toc-run-the-backtest" class="nav-link" data-scroll-target="#run-the-backtest">Run the backtest</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/silvaac/backtest_sample/issues/new" class="toc-action">Report an issue</a></p></div></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
     </div>
@@ -193,11 +239,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 class="title">backtest_sample</h1>
 </div>
 
-<div>
-  <div class="description">
-    backtest sample code: very simple with main features
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -233,27 +274,139 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="installation">Installation</h3>
 <p>Install latest from the GitHub <a href="https://github.com/silvaac/backtest_sample">repository</a>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install git+https://github.com/silvaac/backtest_sample.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or from <a href="https://anaconda.org/silvaac/backtest_sample">conda</a></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda install <span class="at">-c</span> silvaac backtest_sample</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or from <a href="https://pypi.org/project/backtest_sample/">pypi</a></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install backtest_sample</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="documentation" class="level3">
 <h3 class="anchored" data-anchor-id="documentation">Documentation</h3>
-<p>Documentation can be found hosted on this GitHub <a href="https://github.com/silvaac/backtest_sample">repository</a>’s <a href="https://silvaac.github.io/backtest_sample/">pages</a>. Additionally you can find package manager specific guidelines on <a href="https://anaconda.org/silvaac/backtest_sample">conda</a> and <a href="https://pypi.org/project/backtest_sample/">pypi</a> respectively.</p>
+<p>Documentation can be found hosted on this GitHub <a href="https://github.com/silvaac/backtest_sample">repository</a>’s <a href="https://www.idatafactory.com/backtest_sample/">pages</a>.</p>
 </section>
 </section>
 <section id="how-to-use" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-use">How to use</h2>
-<p>Fill me in please! Don’t forget code examples:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="get-data" class="level3">
+<h3 class="anchored" data-anchor-id="get-data">Get data</h3>
+<p>You can only get data from yahoo finance at the moment.</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>import_module <span class="op">=</span> get_data()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> import_module(<span class="st">'BTC-USD'</span>).sim_data()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>[*********************100%***********************]  1 of 1 completed</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    Open          High  ...     Adj Close       Volume
+Date                                    ...                           
+2014-09-17    465.864014    468.174011  ...    457.334015     21056800
+2014-09-18    456.859985    456.859985  ...    424.440002     34483200
+2014-09-19    424.102997    427.834991  ...    394.795990     37919700
+2014-09-20    394.673004    423.295990  ...    408.903992     36863600
+2014-09-21    408.084991    412.425995  ...    398.821014     26580100
+...                  ...           ...  ...           ...          ...
+2024-09-13  58130.324219  60648.023438  ...  60571.300781  32490528356
+2024-09-14  60569.117188  60656.722656  ...  60005.121094  16428405496
+2024-09-15  60000.726562  60381.917969  ...  59182.835938  18120960867
+2024-09-16  59185.226562  59205.511719  ...  58192.507812  32032822113
+2024-09-17  58204.093750  61189.992188  ...  61189.992188  32679829504
+
+[3654 rows x 6 columns]
+                    Open          High  ...     Adj Close       Volume
+Date                                    ...                           
+2014-09-17    465.864014    468.174011  ...    457.334015     21056800
+2014-09-18    456.859985    456.859985  ...    424.440002     34483200
+2014-09-19    424.102997    427.834991  ...    394.795990     37919700
+2014-09-20    394.673004    423.295990  ...    408.903992     36863600
+2014-09-21    408.084991    412.425995  ...    398.821014     26580100
+...                  ...           ...  ...           ...          ...
+2024-09-13  58130.324219  60648.023438  ...  60571.300781  32490528356
+2024-09-14  60569.117188  60656.722656  ...  60005.121094  16428405496
+2024-09-15  60000.726562  60381.917969  ...  59182.835938  18120960867
+2024-09-16  59185.226562  59205.511719  ...  58192.507812  32032822113
+2024-09-17  58204.093750  61189.992188  ...  61189.992188  32679829504
+
+[3654 rows x 6 columns]</code></pre>
+</div>
+</div>
+</section>
+<section id="parameters" class="level3">
+<h3 class="anchored" data-anchor-id="parameters">Parameters</h3>
+<p>Select the parameters of the backtest and the model.</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># parameters</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>prm <span class="op">=</span> {}</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">## General parameters</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'when_trade'</span>] <span class="op">=</span> <span class="st">'open'</span> <span class="co"># when to trade</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'start_date'</span>] <span class="op">=</span> <span class="dv">100</span>    <span class="co"># how many periods (days here) to skip before trading</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">## ER model</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'er_member_func'</span>] <span class="op">=</span> get_er() <span class="co"># Select the model class</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># ER model parameters (see model for detail)</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'mawin'</span>] <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'sdwin'</span>] <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">## Risk model</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'risk_member_func'</span>] <span class="op">=</span> get_risk() <span class="co"># Select the model class</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Risk model parameter (see model for detail)</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'wvol'</span>]  <span class="op">=</span> <span class="dv">60</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">## PM allocation model</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'pm_member_func'</span>] <span class="op">=</span> get_pm() <span class="co"># Select the model class</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># PM parameters (see model for detail)</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'target_vol'</span>] <span class="op">=</span> <span class="fl">0.005</span> <span class="co"># target volatility per backtesting step (daily here)</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'AUM'</span>] <span class="op">=</span> <span class="fl">10e6</span>  <span class="co"># Investment capital in the currency of the data ($ here)</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">## TC model parameters</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'tc_member_func'</span>] <span class="op">=</span> get_tc() <span class="co"># Select the model class</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># TC parameters (see model for detail)</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'tc_slope'</span>] <span class="op">=</span> <span class="fl">1e3</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>prm[<span class="st">'tc_bias'</span>] <span class="op">=</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="run-the-backtest" class="level3">
+<h3 class="anchored" data-anchor-id="run-the-backtest">Run the backtest</h3>
+<p>Pass the parameters and the data. Output is a dataframe with col:</p>
+<ul>
+<li>trade: number of shares/contracts to be bought (&gt;0) or sold (&lt;0)</li>
+<li>position: this is the target position for the next time period (here day)</li>
+<li>er: expected return for the next time interval (here day)</li>
+<li>vol: expected volatility for the next time interval (here day)</li>
+<li>pnl0: profit or loss for the time interval without TC (here day)</li>
+<li>pnl: profit or loss for the time interval including TC (here day)</li>
+</ul>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bkt <span class="op">=</span> backtest(df,prm)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bkt.tail())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            trade  position      er     vol         pnl0          pnl
+2024-09-13     -2        -2 -0.0673  0.0307     0.000000  -100.264222
+2024-09-14      8         6  0.2064  0.0300 -4881.953125 -4982.128923
+2024-09-15     -2         4  0.1360  0.0300 -3379.609375 -3480.283094
+2024-09-16      2         6  0.2066  0.0300 -3297.929688 -3398.099201
+2024-09-17      2         8  0.2926  0.0301 -5946.750000 -6046.919490
+            trade  position      er     vol         pnl0          pnl
+2024-09-13     -2        -2 -0.0673  0.0307     0.000000  -100.264222
+2024-09-14      8         6  0.2064  0.0300 -4881.953125 -4982.128923
+2024-09-15     -2         4  0.1360  0.0300 -3379.609375 -3480.283094
+2024-09-16      2         6  0.2066  0.0300 -3297.929688 -3398.099201
+2024-09-17      2         8  0.2926  0.0301 -5946.750000 -6046.919490</code></pre>
+</div>
+</div>
+<p>Sample plot of the data:</p>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.plot(bkt[<span class="st">'pnl'</span>].cumsum())</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add labels and title</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">''</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'$'</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Performance'</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<pre><code>2</code></pre>
+<p><img src="index_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

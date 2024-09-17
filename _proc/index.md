@@ -1,5 +1,4 @@
 ---
-description: 'backtest sample code: very simple with main features'
 output-file: index.html
 title: backtest_sample
 
@@ -38,49 +37,162 @@ Install latest from the GitHub [repository][repo]:
 $ pip install git+https://github.com/silvaac/backtest_sample.git
 ```
 
-or from [conda][conda]
-
-```sh
-$ conda install -c silvaac backtest_sample
-```
-
-or from [pypi][pypi]
-
-
-```sh
-$ pip install backtest_sample
-```
-
-
 [repo]: https://github.com/silvaac/backtest_sample
-[docs]: https://silvaac.github.io/backtest_sample/
-[pypi]: https://pypi.org/project/backtest_sample/
-[conda]: https://anaconda.org/silvaac/backtest_sample
+[docs]: https://www.idatafactory.com/backtest_sample/
 
 ### Documentation
 
-Documentation can be found hosted on this GitHub [repository][repo]'s [pages][docs]. Additionally you can find package manager specific guidelines on [conda][conda] and [pypi][pypi] respectively.
+Documentation can be found hosted on this GitHub [repository][repo]'s [pages][docs].
 
 [repo]: https://github.com/silvaac/backtest_sample
-[docs]: https://silvaac.github.io/backtest_sample/
-[pypi]: https://pypi.org/project/backtest_sample/
-[conda]: https://anaconda.org/silvaac/backtest_sample
+[docs]: https://www.idatafactory.com/backtest_sample/
 
 ## How to use
 
-Fill me in please! Don't forget code examples:
+### Get data 
+You can only get data from yahoo finance at the moment.
 
-::: {.cell}
+::: {.cell execution_count=22}
 ``` {.python .cell-code}
-1+1
+import_module = get_data()
+df = import_module('BTC-USD').sim_data()
+print(df)
+```
+
+::: {.cell-output .cell-output-stderr}
+```
+[*********************100%***********************]  1 of 1 completed
+```
+:::
+
+::: {.cell-output .cell-output-stdout}
+```
+                    Open          High  ...     Adj Close       Volume
+Date                                    ...                           
+2014-09-17    465.864014    468.174011  ...    457.334015     21056800
+2014-09-18    456.859985    456.859985  ...    424.440002     34483200
+2014-09-19    424.102997    427.834991  ...    394.795990     37919700
+2014-09-20    394.673004    423.295990  ...    408.903992     36863600
+2014-09-21    408.084991    412.425995  ...    398.821014     26580100
+...                  ...           ...  ...           ...          ...
+2024-09-13  58130.324219  60648.023438  ...  60571.300781  32490528356
+2024-09-14  60569.117188  60656.722656  ...  60005.121094  16428405496
+2024-09-15  60000.726562  60381.917969  ...  59182.835938  18120960867
+2024-09-16  59185.226562  59205.511719  ...  58192.507812  32032822113
+2024-09-17  58204.093750  61189.992188  ...  61189.992188  32679829504
+
+[3654 rows x 6 columns]
+                    Open          High  ...     Adj Close       Volume
+Date                                    ...                           
+2014-09-17    465.864014    468.174011  ...    457.334015     21056800
+2014-09-18    456.859985    456.859985  ...    424.440002     34483200
+2014-09-19    424.102997    427.834991  ...    394.795990     37919700
+2014-09-20    394.673004    423.295990  ...    408.903992     36863600
+2014-09-21    408.084991    412.425995  ...    398.821014     26580100
+...                  ...           ...  ...           ...          ...
+2024-09-13  58130.324219  60648.023438  ...  60571.300781  32490528356
+2024-09-14  60569.117188  60656.722656  ...  60005.121094  16428405496
+2024-09-15  60000.726562  60381.917969  ...  59182.835938  18120960867
+2024-09-16  59185.226562  59205.511719  ...  58192.507812  32032822113
+2024-09-17  58204.093750  61189.992188  ...  61189.992188  32679829504
+
+[3654 rows x 6 columns]
+```
+:::
+:::
+
+
+### Parameters
+
+Select the parameters of the backtest and the model.
+
+::: {.cell execution_count=23}
+``` {.python .cell-code}
+# parameters
+prm = {}
+## General parameters
+prm['when_trade'] = 'open' # when to trade
+prm['start_date'] = 100    # how many periods (days here) to skip before trading
+## ER model
+prm['er_member_func'] = get_er() # Select the model class
+# ER model parameters (see model for detail)
+prm['mawin'] = 10
+prm['sdwin'] = 30
+## Risk model
+prm['risk_member_func'] = get_risk() # Select the model class
+# Risk model parameter (see model for detail)
+prm['wvol']  = 60
+## PM allocation model
+prm['pm_member_func'] = get_pm() # Select the model class
+# PM parameters (see model for detail)
+prm['target_vol'] = 0.005 # target volatility per backtesting step (daily here)
+prm['AUM'] = 10e6  # Investment capital in the currency of the data ($ here)
+## TC model parameters
+prm['tc_member_func'] = get_tc() # Select the model class
+# TC parameters (see model for detail)
+prm['tc_slope'] = 1e3
+prm['tc_bias'] = 100
+```
+:::
+
+
+### Run the backtest
+Pass the parameters and the data. Output is a dataframe with col:
+
+* trade: number of shares/contracts to be bought (>0) or sold (<0)
+* position: this is the target position for the next time period (here day)
+* er: expected return for the next time interval (here day)
+* vol: expected volatility for the next time interval (here day)
+* pnl0: profit or loss for the time interval without TC (here day)
+* pnl: profit or loss for the time interval including TC (here day)
+
+::: {.cell execution_count=24}
+``` {.python .cell-code}
+bkt = backtest(df,prm)
+print(bkt.tail())
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+            trade  position      er     vol         pnl0          pnl
+2024-09-13     -2        -2 -0.0673  0.0307     0.000000  -100.264222
+2024-09-14      8         6  0.2064  0.0300 -4881.953125 -4982.128923
+2024-09-15     -2         4  0.1360  0.0300 -3379.609375 -3480.283094
+2024-09-16      2         6  0.2066  0.0300 -3297.929688 -3398.099201
+2024-09-17      2         8  0.2926  0.0301 -5946.750000 -6046.919490
+            trade  position      er     vol         pnl0          pnl
+2024-09-13     -2        -2 -0.0673  0.0307     0.000000  -100.264222
+2024-09-14      8         6  0.2064  0.0300 -4881.953125 -4982.128923
+2024-09-15     -2         4  0.1360  0.0300 -3379.609375 -3480.283094
+2024-09-16      2         6  0.2066  0.0300 -3297.929688 -3398.099201
+2024-09-17      2         8  0.2926  0.0301 -5946.750000 -6046.919490
+```
+:::
+:::
+
+
+Sample plot of the data:
+
+::: {.cell execution_count=25}
+``` {.python .cell-code}
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Plot the data
+plt.plot(bkt['pnl'].cumsum())
+
+# Add labels and title
+plt.xlabel('')
+plt.ylabel('$')
+plt.title('Performance')
+
+# Show the plot
+plt.show()
 ```
 
 ::: {.cell-output .cell-output-display}
-```
-2
-```
+![](index_files/figure-html/cell-5-output-1.png){}
 :::
 :::
-
 
 
